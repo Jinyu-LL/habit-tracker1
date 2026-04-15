@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+    <style>
+      :root {
+        --bg-start: #2563eb;
+        --bg-end: #7c3aed;
+        --text: #f8fafc;
+        --button-bg: rgba(255, 255, 255, 0.16);
+        --button-bg-hover: rgba(255, 255, 255, 0.26);
+        --button-border: rgba(255, 255, 255, 0.3);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+        color: var(--text);
+      }
+
+      .card {
+        width: min(92vw, 520px);
+        padding: 2.5rem 2rem;
+        border-radius: 1.25rem;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3rem);
+        letter-spacing: 0.02em;
+      }
+
+      button {
+        margin-top: 1.5rem;
+        border: 1px solid var(--button-border);
+        background: var(--button-bg);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      button:hover,
+      button:focus-visible {
+        background: var(--button-bg-hover);
+        transform: translateY(-1px);
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1 id="heading">Hello World</h1>
+      <button id="changeTextBtn" type="button">Change Heading</button>
+    </main>
+
+    <script>
+      const heading = document.getElementById("heading");
+      const button = document.getElementById("changeTextBtn");
+      let changed = false;
+
+      button.addEventListener("click", () => {
+        changed = !changed;
+        heading.textContent = changed ? "Welcome to My Modern Page" : "Hello World";
+      });
+    </script>
+  </body>
+</html>
